@@ -12,18 +12,26 @@ customtkinter.set_default_color_theme("blue")
 # Our app frame
 app = customtkinter.CTk() # Initializing the app
 app.geometry("720x480") # Setting the app size
-app.title("Port System")
+app.title("Port System Login")
 
 
 # Adding UI elements
 title = customtkinter.CTkLabel(app, text="Username")
 title.pack(padx=10, pady=10) # Padding for x and y
- 
 
-# Finished downloading
-finishLabel = customtkinter.CTkLabel(app, text="")
-finishLabel.pack()
+# Link input
+url_var = tk.StringVar() # Getting the value of the link input
+link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var) # app is where to place it -> inside the app
+link.pack()
 
+# Adding UI elements
+title = customtkinter.CTkLabel(app, text="Password")
+title.pack(padx=10, pady=10) # Padding for x and y
+
+# Link input
+url_var = tk.StringVar() # Getting the value of the link input
+link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var) # app is where to place it -> inside the app
+link.pack()
 
 # Download button
 download = customtkinter.CTkButton(app, text="Login", command=login_user) # Run function
