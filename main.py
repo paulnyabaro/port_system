@@ -5,6 +5,21 @@ app = tk.Tk()
 app.geometry('720x360')
 app.title('Port System Login')
 
+def login_user():
+    username = username_field.get()
+    password = password_field.get()
+    with open("login.txt", 'r') as file:
+        
+        for line in file:
+            # remove any leading or trailing whitespace and split the line into fields
+            fields = line.strip().split(',')
+            if fields[0] == username and fields[1] == password:
+                status_label.config(text="Login successful")
+                return
+        
+    status_label.config(text="Invalid username or password")
+
+
 username_label = tk.Label(app, text='Username', font=('Arial', 14))
 username_label.pack(padx=10, pady=10)
 
@@ -17,7 +32,10 @@ password_label.pack(padx=10, pady=10)
 password_field = tk.Entry(app)
 password_field.pack(padx=20, pady=10)
 
-username_label = tk.Button(app, text='Login', font=('Arial', 14))
+status_label = tk.Label(app, text="")
+status_label.pack(padx=20, pady=10)
+
+username_label = tk.Button(app, text='Login', command=login_user, font=('Arial', 14))
 username_label.pack(padx=20, pady=10)
 
 menuframe = tk.Frame(app)
@@ -38,26 +56,6 @@ menuitem4 = tk.Button(menuframe, text='Logout', font=('Arial', 14))
 menuitem4.grid(row=0, column=3, sticky=tk.W+tk.E)
 
 menuframe.pack(fill='x')
-
-def login_user():
-    with open("login.txt", 'r') as file:
-        next(file)
-        
-        # iterate over the lines in the file
-        for line in file:
-            # remove any leading or trailing whitespace and split the line into fields
-            fields = line.strip().split(',')
-            
-            # extract the fields and assign them to variables
-            username = fields[0]
-            password = fields[1]
-            id = int(fields[2])
-            role = fields[3]
-            
-            # do something with the data, e.g. print it
-            print(f"Username: {username}, Password: {password}, ID: {id}, Role: {role}")
-
-
 
 
 # Run app
