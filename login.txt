@@ -1,0 +1,6 @@
+username,password,id,role
+john_doe,123456,1001,Immigration officer
+jane_doe,abc123,1002,Customs officer
+bob_smith,passw0rd,1003,Immigration officer
+alice_wonderland,pa$$word,1004,Customs officer
+mike_jones,letmein,1005,Immigration officer
