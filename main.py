@@ -25,14 +25,17 @@ menuframe.columnconfigure(0, weight=1)
 menuframe.columnconfigure(1, weight=1)
 menuframe.columnconfigure(2, weight=1)
 
-menuitem1 = tk.Button(menuframe, text='Manage customers', font=('Arial', 14))
+menuitem1 = tk.Button(menuframe, text='Existing passenger', font=('Arial', 14))
 menuitem1.grid(row=0, column=0, sticky=tk.W+tk.E)
 
-menuitem2 = tk.Button(menuframe, text='Search customer', font=('Arial', 14))
+menuitem2 = tk.Button(menuframe, text='New passenger', font=('Arial', 14))
 menuitem2.grid(row=0, column=1, sticky=tk.W+tk.E)
 
-menuitem3 = tk.Button(menuframe, text='Logout', font=('Arial', 14))
+menuitem3 = tk.Button(menuframe, text='Search Passenger', font=('Arial', 14))
 menuitem3.grid(row=0, column=2, sticky=tk.W+tk.E)
+
+menuitem4 = tk.Button(menuframe, text='Logout', font=('Arial', 14))
+menuitem4.grid(row=0, column=2, sticky=tk.W+tk.E)
 
 menuframe.pack(fill='x')
 
