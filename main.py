@@ -20,22 +20,22 @@ title = customtkinter.CTkLabel(app, text="Username")
 title.pack(padx=10, pady=10) # Padding for x and y
 
 # Link input
-url_var = tk.StringVar() # Getting the value of the link input
-link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var) # app is where to place it -> inside the app
-link.pack()
+username_var = tk.StringVar() # Getting the value of the link input
+username = customtkinter.CTkEntry(app, width=350, height=40, textvariable=username_var) # app is where to place it -> inside the app
+username.pack()
 
 # Adding UI elements
 title = customtkinter.CTkLabel(app, text="Password")
 title.pack(padx=10, pady=10) # Padding for x and y
 
 # Link input
-url_var = tk.StringVar() # Getting the value of the link input
-link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var) # app is where to place it -> inside the app
-link.pack()
+password_var = tk.StringVar() # Getting the value of the link input
+password = customtkinter.CTkEntry(app, width=350, height=40, textvariable=password_var) # app is where to place it -> inside the app
+password.pack()
 
 # Download button
 download = customtkinter.CTkButton(app, text="Login", command=login_user) # Run function
-download.pack(padx=10, pady=10) # .pack is used to make elements show up on the screen
+download.pack(padx=20, pady=20) # .pack is used to make elements show up on the screen
 
 # Run app
 app.mainloop()
