@@ -2,7 +2,7 @@ import tkinter as tk
 
 app = tk.Tk()
 
-app.geometry('480x360')
+app.geometry('720x360')
 app.title('Port System Login')
 
 username_label = tk.Label(app, text='Username', font=('Arial', 14))
@@ -35,7 +35,7 @@ menuitem3 = tk.Button(menuframe, text='Search Passenger', font=('Arial', 14))
 menuitem3.grid(row=0, column=2, sticky=tk.W+tk.E)
 
 menuitem4 = tk.Button(menuframe, text='Logout', font=('Arial', 14))
-menuitem4.grid(row=0, column=2, sticky=tk.W+tk.E)
+menuitem4.grid(row=0, column=3, sticky=tk.W+tk.E)
 
 menuframe.pack(fill='x')
 
