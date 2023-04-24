@@ -12,7 +12,6 @@ def add_passenger():
     with open('passenger.txt', 'a') as f:
         # Write new record as a string to the end of the file
         f.write(f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"],\n")
-        # "246810-1214": ["Bob Johnson", "05/15/1975", "Male", 0, "Departure Approved"]
         
     # Clear the entry fields
     entry_civil_id.delete(0, tk.END)
