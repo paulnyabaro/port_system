@@ -5,7 +5,7 @@ from tkinter import messagebox
 # create the main window
 root = tk.Tk()
 root.geometry('480x240')
-root.title("Immigration officer menu")
+root.title("Customs officer menu")
 option_menu_frame = tk.Frame(root)
 option_menu_frame.pack(padx=20, pady=20)
 
