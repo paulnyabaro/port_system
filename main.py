@@ -1,7 +1,10 @@
 import tkinter as tk
+from tkinter import messagebox
+import os
 
 # create the main window
 root = tk.Tk()
+root.geometry('480x240')
 root.title("Port System Login")
 
 # create the login frame
@@ -18,6 +21,7 @@ password_label = tk.Label(login_frame, text="Password:")
 password_label.grid(row=1, column=0, padx=5, pady=5)
 password_entry = tk.Entry(login_frame, show="*")
 password_entry.grid(row=1, column=1, padx=5, pady=5)
+
 
 # create the login button function
 def login():
@@ -41,7 +45,7 @@ def login():
     option_menu_frame.pack(padx=20, pady=20)
     
     # create the option menu for the Immigration officer
-    if role == "Immigration officer":
+    if role == "Customs officer":
         option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
         option_menu_label.pack(padx=5, pady=5)
         
@@ -51,24 +55,19 @@ def login():
         new_passenger_button = tk.Button(option_menu_frame, text="See Report")
         new_passenger_button.pack(padx=5, pady=5)
         
-        logout_button = tk.Button(option_menu_frame, text="Logout")
+        logout_button = tk.Button(option_menu_frame, text="Logout", command=logout)
         logout_button.pack(padx=5, pady=5)
 
-    elif role == "Customs officer":
-        option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
-        option_menu_label.pack(padx=5, pady=5)
-        
-        existing_passenger_button = tk.Button(option_menu_frame, text="Existing Passenger")
-        existing_passenger_button.pack(padx=5, pady=5)
-        
-        new_passenger_button = tk.Button(option_menu_frame, text="New Passenger")
-        new_passenger_button.pack(padx=5, pady=5)
-        
-        search_passenger_button = tk.Button(option_menu_frame, text="Search Passenger")
-        search_passenger_button.pack(padx=5, pady=5)
-        
-        logout_button = tk.Button(option_menu_frame, text="Logout")
-        logout_button.pack(padx=5, pady=5)
+    elif role == "Immigration officer":
+            root.withdraw()
+            os.system("python3 immigration_officer.py")
+
+
+def existing_passenger():
+    print('Existing customer')
+
+def logout():
+    login_frame.pack()
 
 # create the login button
 login_button = tk.Button(login_frame, text="Login", command=login)
