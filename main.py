@@ -1,62 +1,78 @@
 import tkinter as tk
 
-app = tk.Tk()
+# create the main window
+root = tk.Tk()
+root.title("Port System Login")
 
-app.geometry('720x360')
-app.title('Port System Login')
+# create the login frame
+login_frame = tk.Frame(root)
+login_frame.pack(padx=20, pady=20)
 
-def login_user():
-    username = username_field.get()
-    password = password_field.get()
-    with open("login.txt", 'r') as file:
+# create the login labels and entries
+username_label = tk.Label(login_frame, text="Username:")
+username_label.grid(row=0, column=0, padx=5, pady=5)
+username_entry = tk.Entry(login_frame)
+username_entry.grid(row=0, column=1, padx=5, pady=5)
+
+password_label = tk.Label(login_frame, text="Password:")
+password_label.grid(row=1, column=0, padx=5, pady=5)
+password_entry = tk.Entry(login_frame, show="*")
+password_entry.grid(row=1, column=1, padx=5, pady=5)
+
+# create the login button function
+def login():
+    username = username_entry.get()
+    password = password_entry.get()
+    
+    # check the login credentials
+    with open("login.txt", "r") as f:
+        for line in f:
+            line = line.strip().split(",")
+            if username == line[0] and password == line[1]:
+                role = line[3]
+                break
+        else:
+            tk.messagebox.showerror("Error", "Invalid username or password")
+            return
+    
+    # destroy the login frame and create the option menu frame
+    login_frame.destroy()
+    option_menu_frame = tk.Frame(root)
+    option_menu_frame.pack(padx=20, pady=20)
+    
+    # create the option menu for the Immigration officer
+    if role == "Immigration officer":
+        option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
+        option_menu_label.pack(padx=5, pady=5)
         
-        for line in file:
-            # remove any leading or trailing whitespace and split the line into fields
-            fields = line.strip().split(',')
-            if fields[0] == username and fields[1] == password:
-                status_label.config(text="Login successful")
-                return
+        existing_passenger_button = tk.Button(option_menu_frame, text="Enter Civil ID")
+        existing_passenger_button.pack(padx=5, pady=5)
         
-    status_label.config(text="Invalid username or password")
+        new_passenger_button = tk.Button(option_menu_frame, text="See Report")
+        new_passenger_button.pack(padx=5, pady=5)
+        
+        logout_button = tk.Button(option_menu_frame, text="Logout")
+        logout_button.pack(padx=5, pady=5)
 
+    elif role == "Customs officer":
+        option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
+        option_menu_label.pack(padx=5, pady=5)
+        
+        existing_passenger_button = tk.Button(option_menu_frame, text="Existing Passenger")
+        existing_passenger_button.pack(padx=5, pady=5)
+        
+        new_passenger_button = tk.Button(option_menu_frame, text="New Passenger")
+        new_passenger_button.pack(padx=5, pady=5)
+        
+        search_passenger_button = tk.Button(option_menu_frame, text="Search Passenger")
+        search_passenger_button.pack(padx=5, pady=5)
+        
+        logout_button = tk.Button(option_menu_frame, text="Logout")
+        logout_button.pack(padx=5, pady=5)
 
-username_label = tk.Label(app, text='Username', font=('Arial', 14))
-username_label.pack(padx=10, pady=10)
+# create the login button
+login_button = tk.Button(login_frame, text="Login", command=login)
+login_button.grid(row=2, column=1, padx=5, pady=5)
 
-username_field = tk.Entry(app)
-username_field.pack(padx=20, pady=10)
-
-password_label = tk.Label(app, text='Password', font=('Arial', 14))
-password_label.pack(padx=10, pady=10)
-
-password_field = tk.Entry(app)
-password_field.pack(padx=20, pady=10)
-
-status_label = tk.Label(app, text="")
-status_label.pack(padx=20, pady=10)
-
-username_label = tk.Button(app, text='Login', command=login_user, font=('Arial', 14))
-username_label.pack(padx=20, pady=10)
-
-menuframe = tk.Frame(app)
-menuframe.columnconfigure(0, weight=1)
-menuframe.columnconfigure(1, weight=1)
-menuframe.columnconfigure(2, weight=1)
-
-menuitem1 = tk.Button(menuframe, text='Existing passenger', font=('Arial', 14))
-menuitem1.grid(row=0, column=0, sticky=tk.W+tk.E)
-
-menuitem2 = tk.Button(menuframe, text='New passenger', font=('Arial', 14))
-menuitem2.grid(row=0, column=1, sticky=tk.W+tk.E)
-
-menuitem3 = tk.Button(menuframe, text='Search Passenger', font=('Arial', 14))
-menuitem3.grid(row=0, column=2, sticky=tk.W+tk.E)
-
-menuitem4 = tk.Button(menuframe, text='Logout', font=('Arial', 14))
-menuitem4.grid(row=0, column=3, sticky=tk.W+tk.E)
-
-menuframe.pack(fill='x')
-
-
-# Run app
-app.mainloop()
+# run the main loop
+root.mainloop()
