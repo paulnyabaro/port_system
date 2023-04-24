@@ -38,6 +38,23 @@ def display_info():
         customs_fine_label.config(text="Customs Fine: " + customs_fine)
         status_label.config(text="Status: " + status)
 
+
+        arrival_approved_button = tk.Button(root, text="Arrival Approved")
+        arrival_approved_button.grid(row=7, column=1)
+
+        arrival_rejected_button = tk.Button(root, text="Arrival Rejected")
+        arrival_rejected_button.grid(row=7, column=2)
+
+        departure_approved_button = tk.Button(root, text="Departure Approved")
+        departure_approved_button.grid(row=7, column=3)
+
+
+        departure_rejected_button = tk.Button(root, text="Departure Rejected")
+        departure_rejected_button.grid(row=7, column=4)
+
+        back_button = tk.Button(root, text="Go Back to previous menu")
+        back_button.grid(row=7, column=5)
+
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
         error_label.config(text="Passenger not found")
