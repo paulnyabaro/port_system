@@ -23,6 +23,7 @@ def add_passenger():
 
 # Create tkinter window and widgets
 root = tk.Tk()
+root.title("Add passenger")
 
 label_civil_id = tk.Label(root, text="Civil ID:")
 entry_civil_id = tk.Entry(root)
