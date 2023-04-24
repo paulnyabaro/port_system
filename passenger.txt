@@ -3,5 +3,3 @@
   "098765-4321": ["Jane Smith", "12/31/1985", "Female", 500, "Arrival Rejected"],
   "246810-1214": ["Bob Johnson", "05/15/1975", "Male", 0, "Departure Approved"]
 }
-
-34234,Jonhhg,12/12/3232,Male,423,43243

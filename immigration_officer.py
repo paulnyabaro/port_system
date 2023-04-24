@@ -27,7 +27,7 @@ option_menu_label.pack(padx=5, pady=5)
 existing_passenger_button = tk.Button(option_menu_frame, text="Existing Passenger", command=search_passenger)
 existing_passenger_button.pack(padx=5, pady=5)
 
-new_passenger_button = tk.Button(option_menu_frame, text="New Passenger")
+new_passenger_button = tk.Button(option_menu_frame, text="New Passenger", command=new_passenger)
 new_passenger_button.pack(padx=5, pady=5)
 
 search_passenger_button = tk.Button(option_menu_frame, text="Search Passenger")
