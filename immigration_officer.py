@@ -15,7 +15,7 @@ def search_passenger():
 
 def new_passenger():
     root.withdraw()
-    os.system("python3 search_passenger.py")
+    os.system("python3 add_passenger.py")
 
 def logout_user():
     root.withdraw()
