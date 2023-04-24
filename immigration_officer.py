@@ -13,6 +13,10 @@ def search_passenger():
     root.withdraw()
     os.system("python3 search_passenger.py")
 
+def logout_user():
+    root.withdraw()
+    os.system("python3 main.py")
+
 option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
 option_menu_label.pack(padx=5, pady=5)
 
@@ -25,7 +29,7 @@ new_passenger_button.pack(padx=5, pady=5)
 search_passenger_button = tk.Button(option_menu_frame, text="Search Passenger")
 search_passenger_button.pack(padx=5, pady=5)
 
-logout_button = tk.Button(option_menu_frame, text="Logout")
+logout_button = tk.Button(option_menu_frame, text="Logout", command=logout_user)
 logout_button.pack(padx=5, pady=5)
 
 
