@@ -46,17 +46,8 @@ def login():
     
     # create the option menu for the Immigration officer
     if role == "Customs officer":
-        option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
-        option_menu_label.pack(padx=5, pady=5)
-        
-        existing_passenger_button = tk.Button(option_menu_frame, text="Enter Civil ID")
-        existing_passenger_button.pack(padx=5, pady=5)
-        
-        new_passenger_button = tk.Button(option_menu_frame, text="See Report")
-        new_passenger_button.pack(padx=5, pady=5)
-        
-        logout_button = tk.Button(option_menu_frame, text="Logout", command=logout)
-        logout_button.pack(padx=5, pady=5)
+        root.withdraw()
+        os.system("python3 customs_officer.py")
 
     elif role == "Immigration officer":
             root.withdraw()
