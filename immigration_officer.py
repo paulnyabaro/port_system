@@ -13,6 +13,10 @@ def search_passenger():
     root.withdraw()
     os.system("python3 search_passenger.py")
 
+def new_passenger():
+    root.withdraw()
+    os.system("python3 search_passenger.py")
+
 def logout_user():
     root.withdraw()
     os.system("python3 main.py")
