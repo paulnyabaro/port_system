@@ -3,4 +3,4 @@
 "246810-1214": ["Bob Johnson", "05/15/1975", "Male", 0, "Departure Approved"],
 "4525-1232": ["James Does", "01/01/2012", "Female", "1200", "Departure Arrived"],
 "1234": ["Test user", "10/101/2010", "Male", "", ""],
-12345,Paul,12/12/1996,Male,34,Arrival Approved
+12345,Paul,12/12/1996,Male,,
