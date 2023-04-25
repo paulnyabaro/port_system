@@ -46,12 +46,12 @@ def login():
     
     # create the option menu for the Immigration officer
     if role == "Customs officer":
-        root.withdraw()
+        root.destroy()
         os.system("python3 customs_officer.py")
 
     elif role == "Immigration officer":
-            root.withdraw()
-            os.system("python3 immigration_officer.py")
+        root.destroy()
+        os.system("python3 immigration_officer.py")
 
 
 def existing_passenger():
