@@ -27,16 +27,12 @@ def display_info():
         info = passengers[civil_id]
         name = info[0]
         dob = info[1]
-        gender = info[2]
         customs_fine = info[3]
-        status = info[4]
 
         # display the passenger information on the screen
         name_label.config(text="Total customers fined: " + name)
         dob_label.config(text="Average fine per passenger: " + dob)
-        gender_label.config(text="Passengers with fine more than 6000 KD: " + gender)
-        customs_fine_label.config(text="Customs Fine: " + customs_fine)
-        status_label.config(text="Status: " + status)
+        customs_fine_label.config(text="Passengers with fine more than 6000 KD: " + customs_fine)
 
         def set_status(status):
             print('Status set to')
