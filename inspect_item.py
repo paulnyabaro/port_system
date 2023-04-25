@@ -2,7 +2,7 @@ import tkinter as tk
 
 # create a tkinter window
 root = tk.Tk()
-root.title("Passenger Information")
+root.title("Inspect Item")
 
 # read the data from passenger.txt file
 with open("passenger.txt", "r") as f:
@@ -42,28 +42,12 @@ def display_info():
             print('Status set to')
 
 
-        arrival_approved_button = tk.Button(root, text="Arrival Approved", command=lambda:set_status('Arrival Approved'))
-        arrival_approved_button.grid(row=7, column=0)
-
-        arrival_rejected_button = tk.Button(root, text="Arrival Rejected")
-        arrival_rejected_button.grid(row=7, column=1)
-
-        departure_approved_button = tk.Button(root, text="Departure Approved")
-        departure_approved_button.grid(row=7, column=2)
-
-
-        departure_rejected_button = tk.Button(root, text="Departure Rejected")
-        departure_rejected_button.grid(row=7, column=3)
-
-        back_button = tk.Button(root, text="Go Back to previous menu")
-        back_button.grid(row=7, column=4)
-
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
         error_label.config(text="Passenger not found")
 
 # create a label and entry widget for civil id
-id_label = tk.Label(root, text="Enter Civil ID:")
+id_label = tk.Label(root, text="Set custom fine:")
 id_label.grid(row=0, column=0)
 
 entry = tk.Entry(root)
