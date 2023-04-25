@@ -32,9 +32,9 @@ def display_info():
         status = info[4]
 
         # display the passenger information on the screen
-        name_label.config(text="Name: " + name)
-        dob_label.config(text="Date of Birth: " + dob)
-        gender_label.config(text="Gender: " + gender)
+        name_label.config(text="Total customers fined: " + name)
+        dob_label.config(text="Average fine per passenger: " + dob)
+        gender_label.config(text="Passengers with fine more than 6000 KD: " + gender)
         customs_fine_label.config(text="Customs Fine: " + customs_fine)
         status_label.config(text="Status: " + status)
 
