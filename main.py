@@ -61,8 +61,8 @@ def logout():
     login_frame.pack()
 
 # create the login button
-login_button = tk.Button(login_frame, text="Login", command=login)
-login_button.grid(row=2, column=1, padx=5, pady=5)
+login_button = tk.Button(login_frame, text="Login", command=login, bg='blue', padx=50, pady=10)
+login_button.grid(row=2, column=1)
 
 # run the main loop
 root.mainloop()

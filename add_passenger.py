@@ -5,8 +5,8 @@ def add_passenger():
     name = entry_name.get()
     dob = entry_dob.get()
     gender = entry_gender.get()
-    customs_fine = entry_customs_fine.get()
-    status = entry_status.get()
+    customs_fine = ''
+    status = ''
     
     # Open file in append mode
     with open('passenger.txt', 'a') as f:
@@ -18,8 +18,8 @@ def add_passenger():
     entry_name.delete(0, tk.END)
     entry_dob.delete(0, tk.END)
     entry_gender.delete(0, tk.END)
-    entry_customs_fine.delete(0, tk.END)
-    entry_status.delete(0, tk.END)
+    # entry_customs_fine.delete(0, tk.END)
+    # entry_status.delete(0, tk.END)
 
 # Create tkinter window and widgets
 root = tk.Tk()
@@ -37,11 +37,11 @@ entry_dob = tk.Entry(root)
 label_gender = tk.Label(root, text="Gender:")
 entry_gender = tk.Entry(root)
 
-label_customs_fine = tk.Label(root, text="Customs Fine:")
-entry_customs_fine = tk.Entry(root)
+# label_customs_fine = tk.Label(root, text="Customs Fine:")
+# entry_customs_fine = tk.Entry(root)
 
-label_status = tk.Label(root, text="Status:")
-entry_status = tk.Entry(root)
+# label_status = tk.Label(root, text="Status:")
+# entry_status = tk.Entry(root)
 
 button_add = tk.Button(root, text="Add Passenger", command=add_passenger)
 
@@ -58,11 +58,11 @@ entry_dob.grid(row=2, column=1)
 label_gender.grid(row=3, column=0)
 entry_gender.grid(row=3, column=1)
 
-label_customs_fine.grid(row=4, column=0)
-entry_customs_fine.grid(row=4, column=1)
+# label_customs_fine.grid(row=4, column=0)
+# entry_customs_fine.grid(row=4, column=1)
 
-label_status.grid(row=5, column=0)
-entry_status.grid(row=5, column=1)
+# label_status.grid(row=5, column=0)
+# entry_status.grid(row=5, column=1)
 
 button_add.grid(row=6, column=1)
 
