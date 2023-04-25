@@ -29,6 +29,9 @@ new_passenger_button.pack(padx=5, pady=5)
 logout_button = tk.Button(option_menu_frame, text="Logout", command=logout_user)
 logout_button.pack(padx=5, pady=5)
 
+menubar = tk.Menu(root)
+menubar.add_cascade(label='Logout')
+root.config(menu=menubar)
 
 # run the main loop
 root.mainloop()
