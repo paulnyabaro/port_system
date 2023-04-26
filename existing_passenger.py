@@ -41,22 +41,27 @@ def display_info():
         def set_status(status):
             print('Status set to')
 
+        set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
+        set_status_frame.pack(padx=20, pady=20)
 
-        arrival_approved_button = tk.Button(root, text="Arrival Approved", command=lambda:set_status('Arrival Approved'))
+        arrival_approved_button = tk.Button(set_status_frame, text="Arrival Approved", command=lambda:set_status('Arrival Approved'))
         arrival_approved_button.grid(row=7, column=0)
 
-        arrival_rejected_button = tk.Button(root, text="Arrival Rejected")
+        arrival_rejected_button = tk.Button(set_status_frame, text="Arrival Rejected")
         arrival_rejected_button.grid(row=7, column=1)
 
-        departure_approved_button = tk.Button(root, text="Departure Approved")
+        departure_approved_button = tk.Button(set_status_frame, text="Departure Approved")
         departure_approved_button.grid(row=7, column=2)
 
 
-        departure_rejected_button = tk.Button(root, text="Departure Rejected")
+        departure_rejected_button = tk.Button(set_status_frame, text="Departure Rejected")
         departure_rejected_button.grid(row=7, column=3)
 
-        back_button = tk.Button(root, text="Go Back to previous menu")
+        back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
         back_button.grid(row=7, column=4)
+
+        back_button = tk.Button(set_status_frame, text="Update Status")
+        back_button.grid(row=8, column=0)
 
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
