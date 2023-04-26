@@ -9,9 +9,13 @@ root.title("Customs officer menu")
 option_menu_frame = tk.Frame(root)
 option_menu_frame.pack(padx=20, pady=20)
 
-def search_passenger():
+def enter_civil_id():
     root.withdraw()
-    os.system("python3 search_passenger.py")
+    os.system("python3 enter_passenger.py")
+
+def see_report():
+    root.withdraw()
+    os.system("python3 enter_passenger.py")
 
 def logout_user():
     root.withdraw()
@@ -20,10 +24,10 @@ def logout_user():
 option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
 option_menu_label.pack(padx=5, pady=5)
 
-existing_passenger_button = tk.Button(option_menu_frame, text="Enter Civil ID")
+existing_passenger_button = tk.Button(option_menu_frame, text="Enter Civil ID", command=enter_civil_id)
 existing_passenger_button.pack(padx=5, pady=5)
 
-new_passenger_button = tk.Button(option_menu_frame, text="See Report")
+new_passenger_button = tk.Button(option_menu_frame, text="See Report", command=see_report)
 new_passenger_button.pack(padx=5, pady=5)
 
 logout_button = tk.Button(option_menu_frame, text="Logout", command=logout_user)
