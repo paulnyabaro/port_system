@@ -4,7 +4,7 @@ import os
 
 # create a tkinter window
 root = tk.Tk()
-root.title("Passenger Information")
+root.title("Civil ID")
 
 set_st = tk.StringVar()
 set_st.set('')
@@ -23,6 +23,11 @@ for line in data:
     passengers[key] = value
 
 # create a function to display the passenger information
+
+def inspect_item():
+    root.withdraw()
+    os.system("python3 inspect_item.py")
+
 def display_info():
     # get the civil id entered by the user
     civil_id = entry.get()
@@ -47,27 +52,21 @@ def display_info():
         def set_status(status):
             print('Status set to')
 
-        set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
+        def set_custom_fine_zero():
+            print('Status set to 0')
+
+
+        set_status_frame = tk.LabelFrame(root, text='Custom fine field', padx=20, pady=20)
         set_status_frame.grid(row=10, column=0, padx=20, pady=10)
 
-        arrival_approved_r_button = tk.Radiobutton(set_status_frame, text="Arrival Approved", variable=set_st, value='Arrival Approved')
-        arrival_approved_r_button.grid(row=8, column=0)
+        allow_through_green_channel = tk.Button(set_status_frame, text="Allow through green channel", command=lambda:set_custom_fine_zero())
+        allow_through_green_channel.grid(row=8, column=0)
 
-        arrival_rejected_r_button = tk.Radiobutton(set_status_frame, text="Arrival Rejected", variable=set_st, value='Arrival Rejected')
-        arrival_rejected_r_button.grid(row=9, column=0)
+        allow_through_green_channel = tk.Button(set_status_frame, text="Passenger self declared items", command=lambda:set_custom_fine_zero())
+        allow_through_green_channel.grid(row=9, column=0)
 
-        departure_approved_r_button = tk.Radiobutton(set_status_frame, text="Departure Approved", variable=set_st, value='Departure Approved')
-        departure_approved_r_button.grid(row=10, column=0)
-
-
-        departure_rejected_r_button = tk.Radiobutton(set_status_frame, text="Departure Rejected", variable=set_st, value='Departure Rejected')
-        departure_rejected_r_button.grid(row=11, column=0)
-
-        # back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
-        # back_button.grid(row=8, column=4)
-
-        back_button = tk.Button(set_status_frame, text="Update Status", command=lambda:set_status('Arrival Approved'))
-        back_button.grid(row=12, column=0, pady=10)
+        allow_through_green_channel = tk.Button(set_status_frame, text="Inspect Item", command=inspect_item)
+        allow_through_green_channel.grid(row=10, column=0)
 
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message

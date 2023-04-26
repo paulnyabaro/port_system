@@ -51,7 +51,7 @@ def display_info():
 
 def back_to_previous_menu():
     root.withdraw()
-    os.system("python3 customs_officer.py")
+    os.system("python3 enter_civil_id.py")
 
 def logout_user():
     root.withdraw()
