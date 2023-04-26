@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 # create a tkinter window
 root = tk.Tk()
@@ -40,17 +41,22 @@ def display_info():
 
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
-        error_label.config(text="Passenger not found")
+        # error_label.config(text="Passenger not found")
+        tk.messagebox.showerror("Error", "Passenger not found")
 
 # create a label and entry widget for civil id
-id_label = tk.Label(root, text="Enter Civil ID:")
+existing_customer_search_frame = tk.LabelFrame(root, text='Search for exiting customer', padx=10, pady=10)
+existing_customer_search_frame.grid(row=0, column=0, padx=10, pady=10)
+
+id_label = tk.Label(existing_customer_search_frame, text="Enter Civil ID:")
 id_label.grid(row=0, column=0)
 
-entry = tk.Entry(root)
+entry = tk.Entry(existing_customer_search_frame)
 entry.grid(row=0, column=1)
+# entry.insert(0, 'Civil ID')
 
 # create a button to display passenger information
-button = tk.Button(root, text="Display Information", command=display_info)
+button = tk.Button(existing_customer_search_frame, text="Search", command=display_info)
 button.grid(row=0, column=2)
 
 # create labels to display passenger information
