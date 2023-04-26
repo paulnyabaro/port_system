@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 # create a tkinter window
 root = tk.Tk()
@@ -22,6 +23,7 @@ for line in data:
 # create a function to display the passenger information
 def display_info():
     # get the civil id entered by the user
+    global civil_id
     civil_id = entry.get()
 
     # check if the civil id exists in the passenger dictionary
@@ -45,30 +47,31 @@ def display_info():
             print('Status set to')
 
         set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
-        set_status_frame.grid(row=7, column=0, padx=20, pady=20)
+        set_status_frame.grid(row=1, column=1, padx=20, pady=10)
 
         arrival_approved_r_button = tk.Radiobutton(set_status_frame, text="Arrival Approved", variable=set_st, value='Arrival Approved', command=lambda:set_status('Arrival Approved'))
         arrival_approved_r_button.grid(row=8, column=0)
 
         arrival_rejected_r_button = tk.Radiobutton(set_status_frame, text="Arrival Rejected", variable=set_st, value='Arrival Rejected')
-        arrival_rejected_r_button.grid(row=8, column=1)
+        arrival_rejected_r_button.grid(row=9, column=0)
 
         departure_approved_r_button = tk.Radiobutton(set_status_frame, text="Departure Approved", variable=set_st, value='Departure Approved')
-        departure_approved_r_button.grid(row=8, column=2)
+        departure_approved_r_button.grid(row=10, column=0)
 
 
         departure_rejected_r_button = tk.Radiobutton(set_status_frame, text="Departure Rejected", variable=set_st, value='Departure Rejected')
-        departure_rejected_r_button.grid(row=8, column=3)
+        departure_rejected_r_button.grid(row=11, column=0)
 
-        back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
-        back_button.grid(row=8, column=4)
+        # back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
+        # back_button.grid(row=8, column=4)
 
         back_button = tk.Button(set_status_frame, text="Update Status")
-        back_button.grid(row=9, column=0)
+        back_button.grid(row=12, column=0)
 
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
-        error_label.config(text="Passenger not found")
+        # error_label.message(text="Passenger not found")
+        tk.messagebox.showerror("Error", "Passenger not found")
 
 # create a label and entry widget for civil id
 id_label = tk.Label(root, text="Enter Civil ID:")
@@ -82,21 +85,25 @@ entry.grid(row=0, column=1)
 button = tk.Button(root, text="Display Information", command=display_info)
 button.grid(row=0, column=2)
 
+
+passenger_info_frame = tk.LabelFrame(root, text='Passenger information', padx=20, pady=20)
+passenger_info_frame.grid(row=1, column=0, padx=20, pady=10)
+
 # create labels to display passenger information
-name_label = tk.Label(root)
-name_label.grid(row=1, column=0)
+name_label = tk.Label(passenger_info_frame)
+name_label.grid(row=2, column=0)
 
-dob_label = tk.Label(root)
-dob_label.grid(row=2, column=0)
+dob_label = tk.Label(passenger_info_frame)
+dob_label.grid(row=3, column=0)
 
-gender_label = tk.Label(root)
-gender_label.grid(row=3, column=0)
+gender_label = tk.Label(passenger_info_frame)
+gender_label.grid(row=4, column=0)
 
-customs_fine_label = tk.Label(root)
-customs_fine_label.grid(row=4, column=0)
+customs_fine_label = tk.Label(passenger_info_frame)
+customs_fine_label.grid(row=5, column=0)
 
-status_label = tk.Label(root)
-status_label.grid(row=5, column=0)
+status_label = tk.Label(passenger_info_frame)
+status_label.grid(row=6, column=0)
 
 
 # create an error label
