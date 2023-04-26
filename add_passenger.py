@@ -1,4 +1,5 @@
 import tkinter as tk
+import os
 
 def add_passenger():
     civil_id = entry_civil_id.get()
@@ -20,6 +21,14 @@ def add_passenger():
     entry_gender.delete(0, tk.END)
     # entry_customs_fine.delete(0, tk.END)
     # entry_status.delete(0, tk.END)
+
+def back_to_previous_menu():
+    root.withdraw()
+    os.system("python3 immigration_officer.py")
+
+def logout_user():
+    root.withdraw()
+    os.system("python3 main.py")
 
 # Create tkinter window and widgets
 root = tk.Tk()
@@ -63,6 +72,11 @@ entry_gender.grid(row=3, column=1)
 
 # label_status.grid(row=5, column=0)
 # entry_status.grid(row=5, column=1)
+
+menubar = tk.Menu(root)
+menubar.add_command(label='Go Back', command=back_to_previous_menu)
+menubar.add_command(label='Logout', command=logout_user)
+root.config(menu=menubar)
 
 button_add.grid(row=6, column=1)
 
