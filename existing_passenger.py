@@ -4,6 +4,9 @@ import tkinter as tk
 root = tk.Tk()
 root.title("Passenger Information")
 
+set_st = tk.StringVar()
+set_st.set('')
+
 # read the data from passenger.txt file
 with open("passenger.txt", "r") as f:
     data = f.readlines()
@@ -42,26 +45,26 @@ def display_info():
             print('Status set to')
 
         set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
-        set_status_frame.pack(padx=20, pady=20)
+        set_status_frame.grid(row=7, column=1, pady=20)
 
-        arrival_approved_button = tk.Button(set_status_frame, text="Arrival Approved", command=lambda:set_status('Arrival Approved'))
-        arrival_approved_button.grid(row=7, column=0)
+        arrival_approved_r_button = tk.Radiobutton(set_status_frame, text="Arrival Approved", variable=set_st, value='', command=lambda:set_status('Arrival Approved'))
+        arrival_approved_r_button.grid(row=8, column=0)
 
-        arrival_rejected_button = tk.Button(set_status_frame, text="Arrival Rejected")
-        arrival_rejected_button.grid(row=7, column=1)
+        arrival_rejected_r_button = tk.Radiobutton(set_status_frame, text="Arrival Rejected", variable=set_st, value='')
+        arrival_rejected_r_button.grid(row=8, column=1)
 
-        departure_approved_button = tk.Button(set_status_frame, text="Departure Approved")
-        departure_approved_button.grid(row=7, column=2)
+        departure_approved_r_button = tk.Radiobutton(set_status_frame, text="Departure Approved", variable=set_st, value='')
+        departure_approved_r_button.grid(row=8, column=2)
 
 
-        departure_rejected_button = tk.Button(set_status_frame, text="Departure Rejected")
-        departure_rejected_button.grid(row=7, column=3)
+        departure_rejected_r_button = tk.Radiobutton(set_status_frame, text="Departure Rejected", variable=set_st, value='')
+        departure_rejected_r_button.grid(row=8, column=3)
 
         back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
-        back_button.grid(row=7, column=4)
+        back_button.grid(row=8, column=4)
 
         back_button = tk.Button(set_status_frame, text="Update Status")
-        back_button.grid(row=8, column=0)
+        back_button.grid(row=9, column=0)
 
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
