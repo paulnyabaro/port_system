@@ -30,8 +30,6 @@ existing_passenger_button.pack(padx=5, pady=5)
 new_passenger_button = tk.Button(option_menu_frame, text="See Report", command=see_report)
 new_passenger_button.pack(padx=5, pady=5)
 
-logout_button = tk.Button(option_menu_frame, text="Logout", command=logout_user)
-logout_button.pack(padx=5, pady=5)
 
 menubar = tk.Menu(root)
 menubar.add_command(label='Logout', command=logout_user)
