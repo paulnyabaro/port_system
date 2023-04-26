@@ -45,7 +45,7 @@ def display_info():
         tk.messagebox.showerror("Error", "Passenger not found")
 
 # create a label and entry widget for civil id
-existing_customer_search_frame = tk.LabelFrame(root, text='Search for exiting customer', padx=10, pady=10)
+existing_customer_search_frame = tk.LabelFrame(root, text='Search for passenger', padx=10, pady=10)
 existing_customer_search_frame.grid(row=0, column=0, padx=10, pady=10)
 
 id_label = tk.Label(existing_customer_search_frame, text="Enter Civil ID:")
