@@ -11,11 +11,11 @@ option_menu_frame.pack(padx=20, pady=20)
 
 def enter_civil_id():
     root.withdraw()
-    os.system("python3 enter_passenger.py")
+    os.system("python3 enter_civil_id.py")
 
 def see_report():
     root.withdraw()
-    os.system("python3 enter_passenger.py")
+    os.system("python3 report.py")
 
 def logout_user():
     root.withdraw()

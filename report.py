@@ -1,4 +1,5 @@
 import tkinter as tk
+import os
 
 # create a tkinter window
 root = tk.Tk()
@@ -38,9 +39,15 @@ def display_info():
             print('Status set to')
 
 
-    else:
-        # if the civil id does not exist in the passenger dictionary, display an error message
-        error_label.config(text="Passenger not found")
+
+
+def back_to_previous_menu():
+    root.withdraw()
+    os.system("python3 customs_officer.py")
+
+def logout_user():
+    root.withdraw()
+    os.system("python3 main.py")
 
 # create a label and entry widget for civil id
 id_label = tk.Label(root, text="Set custom fine:")
@@ -70,10 +77,10 @@ customs_fine_label.grid(row=4, column=0)
 status_label = tk.Label(root)
 status_label.grid(row=5, column=0)
 
-
-# create an error label
-error_label = tk.Label(root, fg="red")
-error_label.grid(row=6, column=0)
+menubar = tk.Menu(root)
+menubar.add_command(label='Go Back', command=back_to_previous_menu)
+menubar.add_command(label='Logout', command=logout_user)
+root.config(menu=menubar)
 
 
 # start the tkinter main loop

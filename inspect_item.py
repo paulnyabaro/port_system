@@ -1,8 +1,14 @@
 import tkinter as tk
+from tkinter import messagebox
+import os
 
 # create a tkinter window
 root = tk.Tk()
 root.title("Inspect Item")
+
+set_st = tk.StringVar()
+set_st.set('')
+
 
 # read the data from passenger.txt file
 with open("passenger.txt", "r") as f:
@@ -38,46 +44,58 @@ def display_info():
         customs_fine_label.config(text="Customs Fine: " + customs_fine)
         status_label.config(text="Status: " + status)
 
-        def set_status(status):
-            print('Status set to')
-
-
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
-        error_label.config(text="Passenger not found")
+        # error_label.message(text="Passenger not found")
+        tk.messagebox.showerror("Error", "Passenger not found")
+
+def back_to_previous_menu():
+    root.withdraw()
+    os.system("python3 customs_officer.py")
+
+def logout_user():
+    root.withdraw()
+    os.system("python3 main.py")
 
 # create a label and entry widget for civil id
-id_label = tk.Label(root, text="Set custom fine:")
+
+existing_customer_search_frame = tk.LabelFrame(root, text='Set Custom file', padx=10, pady=10)
+existing_customer_search_frame.grid(row=0, column=0, padx=10, pady=10)
+
+id_label = tk.Label(existing_customer_search_frame, text="Fine amount (0 - 15000 KD):")
 id_label.grid(row=0, column=0)
 
-entry = tk.Entry(root)
+entry = tk.Entry(existing_customer_search_frame)
 entry.grid(row=0, column=1)
 # entry.insert(0, 'Civil ID')
 
 # create a button to display passenger information
-button = tk.Button(root, text="Set", command=display_info)
+button = tk.Button(existing_customer_search_frame, text="Search", command=display_info)
 button.grid(row=0, column=2)
+
 
 # create labels to display passenger information
 name_label = tk.Label(root)
-name_label.grid(row=1, column=0)
+name_label.grid(row=2, column=0)
 
 dob_label = tk.Label(root)
-dob_label.grid(row=2, column=0)
+dob_label.grid(row=3, column=0)
 
 gender_label = tk.Label(root)
-gender_label.grid(row=3, column=0)
+gender_label.grid(row=4, column=0)
 
 customs_fine_label = tk.Label(root)
-customs_fine_label.grid(row=4, column=0)
+customs_fine_label.grid(row=5, column=0)
 
 status_label = tk.Label(root)
-status_label.grid(row=5, column=0)
+status_label.grid(row=6, column=0)
 
 
-# create an error label
-error_label = tk.Label(root, fg="red")
-error_label.grid(row=6, column=0)
+menubar = tk.Menu(root)
+menubar.add_command(label='Go Back', command=back_to_previous_menu)
+menubar.add_command(label='Logout', command=logout_user)
+root.config(menu=menubar)
+
 
 
 # start the tkinter main loop
