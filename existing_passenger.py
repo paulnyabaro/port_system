@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import os
 
 # create a tkinter window
 root = tk.Tk()
@@ -7,6 +8,7 @@ root.title("Passenger Information")
 
 set_st = tk.StringVar()
 set_st.set('')
+
 
 # read the data from passenger.txt file
 with open("passenger.txt", "r") as f:
@@ -72,6 +74,14 @@ def display_info():
         # error_label.message(text="Passenger not found")
         tk.messagebox.showerror("Error", "Passenger not found")
 
+def back_to_previous_menu():
+    root.withdraw()
+    os.system("python3 immigration_officer.py")
+
+def logout_user():
+    root.withdraw()
+    os.system("python3 main.py")
+
 # create a label and entry widget for civil id
 
 existing_customer_search_frame = tk.LabelFrame(root, text='Exiting passenger', padx=10, pady=10)
@@ -106,9 +116,11 @@ status_label = tk.Label(root)
 status_label.grid(row=6, column=0)
 
 
-# create an error label
-error_label = tk.Label(root, fg="red")
-error_label.grid(row=6, column=0)
+menubar = tk.Menu(root)
+menubar.add_command(label='Go Back', command=back_to_previous_menu)
+menubar.add_command(label='Logout', command=logout_user)
+root.config(menu=menubar)
+
 
 
 # start the tkinter main loop
