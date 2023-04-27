@@ -11,9 +11,8 @@ def add_passenger():
     status = ''
     
     # Open file in append mode
-    with open('passenger_copy.txt', 'r') as f:
+    with open('passenger.txt', 'r') as f:
         passengers = json.load(f)
-        print(passengers)
         # Write new record as a string to the end of the file
         new_passenger_data = f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"\n]"
         json_string_data = "{" + new_passenger_data + "}"
@@ -21,7 +20,7 @@ def add_passenger():
         passengers.update(new_passenger_data_json)
         print(passengers)
 
-    with open('passenger_copy.txt', 'w') as f:
+    with open('passenger.txt', 'w') as f:
         # f.write(json.dumps(passengers, indent=None))
         # f.write('\n')
         f.write("{\n")
