@@ -56,7 +56,7 @@ passengers_with_fine_over = passengers_with_fine(passengers,6000)
 
 # display the passenger information on the screen
 total_passengers_fined_label.config(text="Total passengers fined: " + str(total_passengers_fined))
-average_fine_per_passenger_label.config(text="Average fine per passenger: " + str(average_fine_per_passenger / total_passengers_fined) + " KD")
+average_fine_per_passenger_label.config(text="Average fine per passenger: " + str(round(average_fine_per_passenger / total_passengers_fined,2)) + " KD")
 passengers_with_fine_over_label.config(text="Passengers with fine more than 6000 KD: " + str(passengers_with_fine_over))
 
 def set_status(status):
