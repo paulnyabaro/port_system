@@ -3,6 +3,6 @@
     "246810": ["Bob Johnson", "05/15/1975", "Male", "234", ""],
     "4525": ["James Does", "01/01/2012", "Female", "423", ""],
     "5678": ["Sarah Johnson", "08/25/1982", "Female", "", ""],
-    "123456": ["John Doe", "01/01/1990", "Male", "", ""],
-    "123456": ["Jake Williams", "10/10/1997", "Male", "12354", "Departure Rejected"]
+    "123456": ["Jake Williams", "10/10/1997", "Male", "6500", "Arrival Rejected"],
+    "212121": ["Kelly Haron", "10/11/1997", "Female", "", ""]
 }

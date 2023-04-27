@@ -3,6 +3,7 @@ import json
 import os
 from tkinter import messagebox
 
+
 def add_passenger():
     civil_id = entry_civil_id.get()
     name = entry_name.get()
@@ -51,6 +52,7 @@ def logout_user():
 # Create tkinter window and widgets
 root = tk.Tk()
 root.title("Add passenger")
+root.geometry('480x240')
 
 label_civil_id = tk.Label(root, text="Civil ID:")
 entry_civil_id = tk.Entry(root)
