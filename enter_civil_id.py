@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import json
 import os
 
 # create a tkinter window
@@ -12,15 +13,15 @@ set_st.set('')
 
 # read the data from passenger.txt file
 with open("passenger.txt", "r") as f:
-    data = f.readlines()
+    passengers = json.load(f)
 
-# create a dictionary to store the data
-passengers = {}
-for line in data:
-    line = line.strip().split(",")
-    key = line[0]
-    value = line[1:]
-    passengers[key] = value
+# # create a dictionary to store the data
+# passengers = {}
+# for line in data:
+#     line = line.strip().split(",")
+#     key = line[0]
+#     value = line[1:]
+#     passengers[key] = value
 
 # create a function to display the passenger information
 
