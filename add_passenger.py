@@ -7,7 +7,7 @@ def add_passenger():
     name = entry_name.get()
     dob = entry_dob.get()
     gender = entry_gender.get()
-    customs_fine = ''
+    customs_fine = 0
     status = ''
     
     # Open file in append mode
