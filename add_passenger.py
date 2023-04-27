@@ -18,7 +18,6 @@ def add_passenger():
         json_string_data = "{" + new_passenger_data + "}"
         new_passenger_data_json = json.loads(json_string_data)
         passengers.update(new_passenger_data_json)
-        print(passengers)
 
     with open('passenger.txt', 'w') as f:
         # f.write(json.dumps(passengers, indent=None))

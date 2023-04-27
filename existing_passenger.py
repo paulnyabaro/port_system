@@ -36,22 +36,32 @@ def display_info():
         # set_st.set('Arrival Approved')
 
         def set_status(status_set):
-            with open("passenger.txt", "r") as f:
-                data = f.readlines()
+            with open('passenger.txt', 'r') as f:
+                passengers = json.load(f)
+                del passengers[f"{civil_id}"]
+                status = status_set.get()
+                # Write new record as a string to the end of the file
+                new_passenger_data = f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"\n]"
+                json_string_data = "{" + new_passenger_data + "}"
+                new_passenger_data_json = json.loads(json_string_data)
+                passengers.update(new_passenger_data_json)
+
+            with open('passenger.txt', 'r') as f:
+                # f.write(json.dumps(passengers, indent=None))
+                # f.write('\n')
+                f.write("{\n")
+                for i, (key, value) in enumerate(passengers.items()):
+                    json_string = json.dumps({key: value})
+                    if i == len(passengers) - 1:
+                        f.write(f"    {json_string[1:-1]}\n")
+                    else:
+                        f.write(f"    {json_string[1:-1]},\n")
+                f.write("}\n")
             
-            with open("passenger.txt", "r") as f:
-                for line in data:
+            with open("passenger.txt", "w") as f:
+                for line in passengers:
                     if line.strip("\n") != "info":
                         f.write(f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"],\n")
-
-        # create a dictionary to store the data
-            passengers = {}
-            for line in data:
-                line = line.strip().split(",")
-                key = line[0]
-                value = line[1:]
-                passengers[key] = value
-            print(f'Status set to {set_st.get()}')
 
         set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
         set_status_frame.grid(row=10, column=0, padx=20, pady=10)

@@ -3,6 +3,6 @@
     "098765-4321": ["Jane Smith", "12/31/1985", "Female", "", ""],
     "246810-1214": ["Bob Johnson", "05/15/1975", "Male", "", ""],
     "4525-1232": ["James Does", "01/01/2012", "Female", "", ""],
-    "1234": ["Test user", "10/101/2010", "Male", "", ""],
-    "5678-9012": ["Sarah Johnson", "08/25/1982", "Female", "", ""]
+    "5678-9012": ["Sarah Johnson", "08/25/1982", "Female", "", "Arrival Approved"],
+    "1234": ["Test user", "10/101/2010", "Male", "", "Arrival Rejected"]
 }
