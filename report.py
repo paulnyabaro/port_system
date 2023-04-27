@@ -28,9 +28,10 @@ with open("passenger.txt", "r") as f:
         global count
         count = 0
         for passenger in passengers.values():
-            fine = int(passenger[3])
-            if fine > amount:
-                count += 1
+            if passenger[3] != '':
+                fine = int(passenger[3])
+                if fine > amount:
+                    count += 1
         return count
     
     def calculate_total_fine(passengers):
@@ -58,12 +59,6 @@ passengers_with_fine_over = passengers_with_fine(passengers,6000)
 total_passengers_fined_label.config(text="Total passengers fined: " + str(total_passengers_fined))
 average_fine_per_passenger_label.config(text="Average fine per passenger: " + str(round(average_fine_per_passenger / total_passengers_fined,2)) + " KD")
 passengers_with_fine_over_label.config(text="Passengers with fine more than 6000 KD: " + str(passengers_with_fine_over))
-
-def set_status(status):
-    print('Status set to')
-
-
-
 
 def back_to_previous_menu():
     root.withdraw()
