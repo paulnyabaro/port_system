@@ -46,7 +46,7 @@ def display_info():
                 new_passenger_data_json = json.loads(json_string_data)
                 passengers.update(new_passenger_data_json)
 
-            with open('passenger.txt', 'r') as f:
+            with open('passenger.txt', 'w') as f:
                 # f.write(json.dumps(passengers, indent=None))
                 # f.write('\n')
                 f.write("{\n")
@@ -58,11 +58,6 @@ def display_info():
                         f.write(f"    {json_string[1:-1]},\n")
                 f.write("}\n")
             
-            with open("passenger.txt", "w") as f:
-                for line in passengers:
-                    if line.strip("\n") != "info":
-                        f.write(f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"],\n")
-
         set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
         set_status_frame.grid(row=10, column=0, padx=20, pady=10)
 
