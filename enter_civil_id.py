@@ -25,10 +25,6 @@ with open("passenger.txt", "r") as f:
 
 # create a function to display the passenger information
 
-def inspect_item():
-    root.withdraw()
-    os.system("python3 inspect_item.py")
-
 def display_info():
     # get the civil id entered by the user
     civil_id = entry.get()
@@ -50,29 +46,83 @@ def display_info():
         customs_fine_label.config(text="Customs Fine: " + customs_fine)
         status_label.config(text="Status: " + status)
 
-        def set_status(status):
-            print('Status set to')
+        def set_custom_fine_zero(custom_fine_amount):
+            with open('passenger.txt', 'r') as f:
+                passengers = json.load(f)
+                del passengers[f"{civil_id}"]
+                customs_fine = custom_fine_amount
+                # Write new record as a string to the end of the file
+                new_passenger_data = f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"\n]"
+                json_string_data = "{" + new_passenger_data + "}"
+                new_passenger_data_json = json.loads(json_string_data)
+                passengers.update(new_passenger_data_json)
 
-        def set_custom_fine_zero():
-            print('Status set to 0')
+            with open('passenger.txt', 'w') as f:
+                # f.write(json.dumps(passengers, indent=None))
+                # f.write('\n')
+                f.write("{\n")
+                for i, (key, value) in enumerate(passengers.items()):
+                    json_string = json.dumps({key: value})
+                    if i == len(passengers) - 1:
+                        f.write(f"    {json_string[1:-1]}\n")
+                    else:
+                        f.write(f"    {json_string[1:-1]},\n")
+                f.write("}\n")
+            
+            tk.messagebox.showinfo("Success", "Custom fine updated to 0")
+        
 
+        def set_custom_fine_amount():
+            with open('passenger.txt', 'r') as f:
+                passengers = json.load(f)
+                del passengers[f"{civil_id}"]
+                customs_fine = inspect_custom_fine_entry.get()
+                # Write new record as a string to the end of the file
+                new_passenger_data = f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"\n]"
+                json_string_data = "{" + new_passenger_data + "}"
+                new_passenger_data_json = json.loads(json_string_data)
+                passengers.update(new_passenger_data_json)
+
+            with open('passenger.txt', 'w') as f:
+                # f.write(json.dumps(passengers, indent=None))
+                # f.write('\n')
+                f.write("{\n")
+                for i, (key, value) in enumerate(passengers.items()):
+                    json_string = json.dumps({key: value})
+                    if i == len(passengers) - 1:
+                        f.write(f"    {json_string[1:-1]}\n")
+                    else:
+                        f.write(f"    {json_string[1:-1]},\n")
+                f.write("}\n")
+            
+            tk.messagebox.showinfo("Success", f"Custom fine updated to {customs_fine}")
+        
 
         set_status_frame = tk.LabelFrame(root, text='Custom fine field', padx=20, pady=20)
         set_status_frame.grid(row=10, column=0, padx=20, pady=10)
 
-        allow_through_green_channel = tk.Button(set_status_frame, text="Allow through green channel", command=lambda:set_custom_fine_zero())
-        allow_through_green_channel.grid(row=8, column=0)
+        allow_through_green_channel = tk.Button(set_status_frame, text="Allow through green channel", command=lambda:set_custom_fine_zero(0))
+        allow_through_green_channel.grid(row=1, column=0)
 
-        allow_through_green_channel = tk.Button(set_status_frame, text="Passenger self declared items", command=lambda:set_custom_fine_zero())
-        allow_through_green_channel.grid(row=9, column=0)
+        allow_through_green_channel = tk.Button(set_status_frame, text="Passenger self declared items", command=lambda:set_custom_fine_zero(0))
+        allow_through_green_channel.grid(row=2, column=0)
 
-        allow_through_green_channel = tk.Button(set_status_frame, text="Inspect Item", command=inspect_item)
-        allow_through_green_channel.grid(row=10, column=0)
+
+        inspect_item_frame = tk.LabelFrame(root, text='Inspect Item', padx=20, pady=20)
+        inspect_item_frame.grid(row=12, column=0, padx=20, pady=10)
+
+        inspect_custom_fine_entry = tk.Entry(inspect_item_frame)
+        inspect_custom_fine_entry.grid(row=1, column=0)
+
+        allow_through_green_channel = tk.Button(inspect_item_frame, text="Set Fine", command=lambda:set_custom_fine_amount())
+        allow_through_green_channel.grid(row=1, column=1)
 
     else:
         # if the civil id does not exist in the passenger dictionary, display an error message
         # error_label.message(text="Passenger not found")
         tk.messagebox.showerror("Error", "Passenger not found")
+
+
 
 def back_to_previous_menu():
     root.withdraw()
