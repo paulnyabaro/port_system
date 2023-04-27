@@ -24,10 +24,10 @@ def logout_user():
 option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
 option_menu_label.pack(padx=5, pady=5)
 
-existing_passenger_button = tk.Button(option_menu_frame, text="Enter Civil ID", command=enter_civil_id)
+existing_passenger_button = tk.Button(option_menu_frame, text="Enter Civil ID", command=enter_civil_id, bg='#023047',fg='white')
 existing_passenger_button.pack(padx=5, pady=5)
 
-new_passenger_button = tk.Button(option_menu_frame, text="See Report", command=see_report)
+new_passenger_button = tk.Button(option_menu_frame, text="See Report", command=see_report, bg='#023047',fg='white')
 new_passenger_button.pack(padx=5, pady=5)
 
 

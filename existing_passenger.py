@@ -77,7 +77,7 @@ def display_info():
         # back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
         # back_button.grid(row=8, column=4)
 
-        back_button = tk.Button(set_status_frame, text="Update Status", command=lambda:set_status(set_st))
+        back_button = tk.Button(set_status_frame, text="Update Status", bg='#023047',fg='white', command=lambda:set_status(set_st))
         back_button.grid(row=12, column=0, pady=10)
 
     else:
@@ -106,7 +106,7 @@ entry.grid(row=0, column=1)
 # entry.insert(0, 'Civil ID')
 
 # create a button to display passenger information
-button = tk.Button(existing_customer_search_frame, text="Search", command=display_info)
+button = tk.Button(existing_customer_search_frame, text="Search", bg='#023047',fg='white', command=display_info)
 button.grid(row=0, column=2)
 
 

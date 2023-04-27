@@ -59,7 +59,7 @@ entry.grid(row=0, column=1)
 # entry.insert(0, 'Civil ID')
 
 # create a button to display passenger information
-button = tk.Button(existing_customer_search_frame, text="Search", command=display_info)
+button = tk.Button(existing_customer_search_frame, text="Search", bg='#023047',fg='white', command=display_info)
 button.grid(row=0, column=2)
 
 # create labels to display passenger information

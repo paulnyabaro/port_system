@@ -70,7 +70,7 @@ entry_gender = tk.Entry(root)
 # label_status = tk.Label(root, text="Status:")
 # entry_status = tk.Entry(root)
 
-button_add = tk.Button(root, text="Add Passenger", command=add_passenger)
+button_add = tk.Button(root, text="Add Passenger", command=add_passenger, bg='#023047',fg='white')
 
 # Display widgets using grid layout
 label_civil_id.grid(row=0, column=0)

@@ -101,10 +101,10 @@ def display_info():
         set_status_frame = tk.LabelFrame(root, text='Custom fine field', padx=20, pady=20)
         set_status_frame.grid(row=10, column=0, padx=20, pady=10)
 
-        allow_through_green_channel = tk.Button(set_status_frame, text="Allow through green channel", command=lambda:set_custom_fine_zero(0))
+        allow_through_green_channel = tk.Button(set_status_frame, text="Allow through green channel", bg='#023047',fg='white', command=lambda:set_custom_fine_zero(0))
         allow_through_green_channel.grid(row=1, column=0)
 
-        allow_through_green_channel = tk.Button(set_status_frame, text="Passenger self declared items", command=lambda:set_custom_fine_zero(0))
+        allow_through_green_channel = tk.Button(set_status_frame, text="Passenger self declared items", bg='#023047',fg='white', command=lambda:set_custom_fine_zero(0))
         allow_through_green_channel.grid(row=2, column=0)
 
 
@@ -114,7 +114,7 @@ def display_info():
         inspect_custom_fine_entry = tk.Entry(inspect_item_frame)
         inspect_custom_fine_entry.grid(row=1, column=0)
 
-        allow_through_green_channel = tk.Button(inspect_item_frame, text="Set Fine", command=lambda:set_custom_fine_amount())
+        allow_through_green_channel = tk.Button(inspect_item_frame, text="Set Fine", bg='#023047',fg='white', command=lambda:set_custom_fine_amount())
         allow_through_green_channel.grid(row=1, column=1)
 
     else:
@@ -145,7 +145,7 @@ entry.grid(row=0, column=1)
 # entry.insert(0, 'Civil ID')
 
 # create a button to display passenger information
-button = tk.Button(existing_customer_search_frame, text="Search", command=display_info)
+button = tk.Button(existing_customer_search_frame, text="Search", bg='#023047',fg='white', command=display_info)
 button.grid(row=0, column=2)
 
 

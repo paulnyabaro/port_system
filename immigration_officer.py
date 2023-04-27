@@ -28,13 +28,13 @@ def logout_user():
 option_menu_label = tk.Label(option_menu_frame, text="Select an option:")
 option_menu_label.pack(padx=5, pady=5)
 
-existing_passenger_button = tk.Button(option_menu_frame, text="Existing Passenger", command=existing_passenger)
+existing_passenger_button = tk.Button(option_menu_frame, text="Existing Passenger", bg='#023047',fg='white', command=existing_passenger)
 existing_passenger_button.pack(padx=5, pady=5)
 
-new_passenger_button = tk.Button(option_menu_frame, text="New Passenger", command=new_passenger)
+new_passenger_button = tk.Button(option_menu_frame, text="New Passenger", bg='#023047',fg='white', command=new_passenger)
 new_passenger_button.pack(padx=5, pady=5)
 
-search_passenger_button = tk.Button(option_menu_frame, text="Search Passenger", command=search_passenger)
+search_passenger_button = tk.Button(option_menu_frame, text="Search Passenger", bg='#023047',fg='white', command=search_passenger)
 search_passenger_button.pack(padx=5, pady=5)
 
 menubar = tk.Menu(root)
