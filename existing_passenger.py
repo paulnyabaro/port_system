@@ -8,39 +8,6 @@ import os
 root = tk.Tk()
 root.title("Passenger Information")
 
-# read the data from passenger.txt file
-# with open("passenger_copy.txt", "r") as f:
-#     print(f)
-#     json_data = json.load(f)
-#     def convert_to_csv(data):
-#         csv_data = []
-#         for key, value in json_data.items():
-#         # Convert the list to a comma-separated string
-#             csv_line = ','.join(str(v) for v in value)
-            
-#             # Add the key-value pair as a comma-separated string to the CSV data list
-#             csv_data.append(f'{key},{csv_line}')
-        
-#         # Return the CSV data as a string
-#         return '\n'.join(csv_data)
-
-# data = convert_to_csv(json_data)
-# print(data)
-# # print(csv_data)
-# # print(csv_data)
-# # data = csv.reader(csv_data)
-# # print(data)
-# # data = csv_data.readlines()
-
-# # create a dictionary to store the data
-# passengers = {}
-# for line in data:
-#     line = line.strip().split(",")
-#     key = line[0]
-#     value = line[1:]
-#     passengers[key] = value
-#     # print(passengers)
-
 with open("passenger.txt", "r") as f:
     passengers = json.load(f)
     # create a function to display the passenger information

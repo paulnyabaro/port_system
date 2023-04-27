@@ -11,15 +11,15 @@ root.title("Passenger Information")
 with open("passenger.txt", "r") as f:
     passengers = json.load(f)
 
-# create a dictionary to store the data
-passengers = {}
-for line in passengers:
-    line = line.strip().split(",")
-    key = line[0]
-    value = line[1:]
-    passengers[key] = value
-    print(passengers)
-    print(type(passengers))
+# # create a dictionary to store the data
+# passengers = {}
+# for line in passengers:
+#     line = line.strip().split(",")
+#     key = line[0]
+#     value = line[1:]
+#     passengers[key] = value
+#     print(passengers)
+#     print(type(passengers))
 
 # create a function to display the passenger information
 def display_info():
