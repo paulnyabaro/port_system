@@ -1,4 +1,6 @@
 import tkinter as tk
+import json
+import csv
 from tkinter import messagebox
 import os
 
@@ -6,23 +8,42 @@ import os
 root = tk.Tk()
 root.title("Passenger Information")
 
-set_st = tk.StringVar()
-set_st.set('')
-
-
 # read the data from passenger.txt file
+# with open("passenger_copy.txt", "r") as f:
+#     print(f)
+#     json_data = json.load(f)
+#     def convert_to_csv(data):
+#         csv_data = []
+#         for key, value in json_data.items():
+#         # Convert the list to a comma-separated string
+#             csv_line = ','.join(str(v) for v in value)
+            
+#             # Add the key-value pair as a comma-separated string to the CSV data list
+#             csv_data.append(f'{key},{csv_line}')
+        
+#         # Return the CSV data as a string
+#         return '\n'.join(csv_data)
+
+# data = convert_to_csv(json_data)
+# print(data)
+# # print(csv_data)
+# # print(csv_data)
+# # data = csv.reader(csv_data)
+# # print(data)
+# # data = csv_data.readlines()
+
+# # create a dictionary to store the data
+# passengers = {}
+# for line in data:
+#     line = line.strip().split(",")
+#     key = line[0]
+#     value = line[1:]
+#     passengers[key] = value
+#     # print(passengers)
+
 with open("passenger.txt", "r") as f:
-    data = f.readlines()
-
-# create a dictionary to store the data
-passengers = {}
-for line in data:
-    line = line.strip().split(",")
-    key = line[0]
-    value = line[1:]
-    passengers[key] = value
-
-# create a function to display the passenger information
+    passengers = json.load(f)
+    # create a function to display the passenger information
 def display_info():
     # get the civil id entered by the user
     civil_id = entry.get()
@@ -44,8 +65,26 @@ def display_info():
         customs_fine_label.config(text="Customs Fine: " + customs_fine)
         status_label.config(text="Status: " + status)
 
-        def set_status(status):
-            print('Status set to')
+        set_st = tk.StringVar()
+        # set_st.set('Arrival Approved')
+
+        def set_status(status_set):
+            with open("passenger.txt", "r") as f:
+                data = f.readlines()
+            
+            with open("passenger.txt", "r") as f:
+                for line in data:
+                    if line.strip("\n") != "info":
+                        f.write(f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"],\n")
+
+        # create a dictionary to store the data
+            passengers = {}
+            for line in data:
+                line = line.strip().split(",")
+                key = line[0]
+                value = line[1:]
+                passengers[key] = value
+            print(f'Status set to {set_st.get()}')
 
         set_status_frame = tk.LabelFrame(root, text='Set status', padx=20, pady=20)
         set_status_frame.grid(row=10, column=0, padx=20, pady=10)
@@ -66,7 +105,7 @@ def display_info():
         # back_button = tk.Button(set_status_frame, text="Go Back to previous menu")
         # back_button.grid(row=8, column=4)
 
-        back_button = tk.Button(set_status_frame, text="Update Status", command=lambda:set_status('Arrival Approved'))
+        back_button = tk.Button(set_status_frame, text="Update Status", command=lambda:set_status(set_st))
         back_button.grid(row=12, column=0, pady=10)
 
     else:

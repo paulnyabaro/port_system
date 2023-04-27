@@ -1,4 +1,5 @@
 import tkinter as tk
+import json
 import os
 
 def add_passenger():
@@ -10,10 +11,28 @@ def add_passenger():
     status = ''
     
     # Open file in append mode
-    with open('passenger.txt', 'a') as f:
+    with open('passenger_copy.txt', 'r') as f:
+        passengers = json.load(f)
+        print(passengers)
         # Write new record as a string to the end of the file
-        f.write(f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"],\n")
-        
+        new_passenger_data = f"\"{civil_id}\": [\"{name}\", \"{dob}\", \"{gender}\", \"{customs_fine}\", \"{status}\"\n]"
+        json_string_data = "{" + new_passenger_data + "}"
+        new_passenger_data_json = json.loads(json_string_data)
+        passengers.update(new_passenger_data_json)
+        print(passengers)
+
+    with open('passenger_copy.txt', 'w') as f:
+        # f.write(json.dumps(passengers, indent=None))
+        # f.write('\n')
+        f.write("{\n")
+        for i, (key, value) in enumerate(passengers.items()):
+            json_string = json.dumps({key: value})
+            if i == len(passengers) - 1:
+                f.write(f"    {json_string[1:-1]}\n")
+            else:
+                f.write(f"    {json_string[1:-1]},\n")
+        f.write("}\n")
+
     # Clear the entry fields
     entry_civil_id.delete(0, tk.END)
     entry_name.delete(0, tk.END)
