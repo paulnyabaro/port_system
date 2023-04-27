@@ -1,13 +1,14 @@
 import tkinter as tk
 import json
 import os
+from tkinter import messagebox
 
 def add_passenger():
     civil_id = entry_civil_id.get()
     name = entry_name.get()
     dob = entry_dob.get()
     gender = entry_gender.get()
-    customs_fine = 0
+    customs_fine = ''
     status = ''
     
     # Open file in append mode
@@ -20,8 +21,6 @@ def add_passenger():
         passengers.update(new_passenger_data_json)
 
     with open('passenger.txt', 'w') as f:
-        # f.write(json.dumps(passengers, indent=None))
-        # f.write('\n')
         f.write("{\n")
         for i, (key, value) in enumerate(passengers.items()):
             json_string = json.dumps({key: value})
@@ -30,6 +29,8 @@ def add_passenger():
             else:
                 f.write(f"    {json_string[1:-1]},\n")
         f.write("}\n")
+
+    tk.messagebox.showinfo("Success", f"Passenger {name} added successfully!")
 
     # Clear the entry fields
     entry_civil_id.delete(0, tk.END)
